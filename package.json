@@ -1,0 +1,44 @@
+{
+  "name": "@coti/pod-sdk",
+  "version": "0.1.0",
+  "description": "Coti PoD SDK - Solidity contracts and TypeScript utilities for PoD dApps",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./contracts/*": "./contracts/*"
+  },
+  "files": [
+    "dist",
+    "contracts"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "coti",
+    "pod",
+    "sdk",
+    "solidity",
+    "mpc"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@coti-io/coti-sdk-typescript": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
