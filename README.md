@@ -1,48 +1,33 @@
 # @coti/pod-sdk
 
-Coti PoD SDK — Solidity contracts and TypeScript utilities for PoD dApps.
+SDK for building privacy dApps on EVM with COTI Privacy on Demand (PoD): Solidity contracts, async Inbox messaging patterns, and TypeScript crypto helpers.
 
-## Installation
+## Install
 
 ```bash
 npm install @coti/pod-sdk
 ```
 
-## Usage
+## Documentation
 
-### Solidity
+Production documentation lives in `/docs`:
 
-```solidity
-import "@coti/pod-sdk/contracts/IInbox.sol";
-```
+- `/docs/README.md` (documentation index)
+- `/docs/01-privacy-decentralized-apps-on-any-evm-chain-with-coti-pod.md`
+- `/docs/02-showcase.md`
+- `/docs/03-features.md`
+- `/docs/04-getting-started.md`
+- `/docs/05-writing-privacy-contracts-on-ethereum.md`
+- `/docs/05a-async-execution.md`
+- `/docs/05b-multi-party-computing-library-mpclib.md`
+- `/docs/05c-examples-with-description.md`
+- `/docs/06-typescript-integration-ux-development.md`
+- `/docs/06a-coti-typescript-sdk.md`
+- `/docs/06b-encrypt-decrypt.md`
+- `/docs/06c-onboarding-account-account-aes-key.md`
+- `/docs/contracts/01-it-ct-gt-data-types.md`
+- `/docs/contracts/02-contract-patterns-and-checklist.md`
 
-### TypeScript
+## Current version
 
-```typescript
-import { CotiPodCrypto, DataType, type EncryptedValue } from "@coti/pod-sdk";
-
-// Encrypt (default: Uint64). Use DataType for other types: Bool, Uint8, Uint16, Uint32, Uint64, Uint128, Uint256, String
-const encrypted = await CotiPodCrypto.encrypt("42", "testnet", DataType.Uint64);
-
-// Decrypt with the user's AES key (same DataType as used for encrypt)
-const decrypted = CotiPodCrypto.decrypt(ciphertextHex, userAesKey, DataType.Uint64);
-```
-
-## Foundry
-
-Foundry will automatically create remappings for the package. Ensure `@coti/pod-sdk` is in your `package.json` dependencies.
-
-## Releases
-
-**Current version:** 0.1.0
-
-### Publishing (maintainers)
-
-1. Update version: `npm version patch|minor|major`
-2. Build and publish: `npm publish --access public`
-
-### Version history
-
-| Version | Date | Notes |
-|---------|------|-------|
-| 0.1.0   | —    | Initial release: Solidity contracts (IInbox, MpcLib, MpcAbiCodec) and CotiPodCrypto TypeScript utilities |
+`0.1.0`

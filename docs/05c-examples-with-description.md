@@ -1,0 +1,76 @@
+# Examples with description
+
+This page explains what each shipped example teaches and what you must add for production.
+
+## `MpcAdder.sol`
+
+Path: `/contracts/examples/MpcAdder.sol`
+
+What it demonstrates:
+
+- Minimal `MpcLib` usage.
+- Request submission with `MpcLib.add(...)`.
+- Callback decode and encrypted result storage (`ctUint64`).
+
+What to add in production:
+
+- request ownership mapping,
+- explicit request status tracking,
+- stronger event coverage for completion/failure.
+
+## `Millionaire.sol`
+
+Path: `/contracts/examples/millionaire/Millionaire.sol`
+
+What it demonstrates:
+
+- User registration with `itUint64` encrypted wealth.
+- Two directional `gt` requests for pair comparison.
+- Request ID correlation and callback request-id recovery pattern.
+
+What to add in production:
+
+- access policy for who can trigger comparisons,
+- anti-spam/rate limiting controls,
+- result lifecycle and retention policy.
+
+## `PErc20.sol` (EVM)
+
+Path: `/contracts/examples/perc20/PErc20.sol`
+
+What it demonstrates:
+
+- Custom method payload construction through `MpcAbiCodec`.
+- Two-way Inbox request targeting COTI-side contract logic.
+- Callback decode of multi-value tuple and encrypted balance updates.
+
+What to add in production:
+
+- full token semantics (allowances, events, compliance with required interfaces),
+- access controls and admin controls,
+- robust balance/query APIs for clients.
+
+## `PErc20Coti.sol` (COTI)
+
+Path: `/contracts/examples/perc20/PErc20Coti.sol`
+
+What it demonstrates:
+
+- Converting stored ciphertext to compute domain (`onBoard`).
+- Private arithmetic on `gt*` values.
+- Converting outputs for storage (`offBoard`) and for users (`offBoardToUser`).
+- Returning ABI tuple through `inbox.respond(...)`.
+
+What to add in production:
+
+- stronger validation and error semantics,
+- replay protections and idempotency checks,
+- complete auditing of private transfer invariants.
+
+## Suggested study order
+
+1. `MpcAdder.sol`
+2. `Millionaire.sol`
+3. `PErc20.sol` + `PErc20Coti.sol`
+
+This order mirrors complexity growth from minimal callback flow to full split-architecture logic.
