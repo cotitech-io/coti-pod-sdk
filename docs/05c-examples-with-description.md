@@ -43,6 +43,7 @@ What it demonstrates:
 - Custom method payload construction through `MpcAbiCodec`.
 - Two-way Inbox request targeting COTI-side contract logic.
 - Callback decode of multi-value tuple and encrypted balance updates.
+- EVM `it*` request arguments being consumed as `gt*` parameters on COTI side.
 
 What to add in production:
 
@@ -60,6 +61,7 @@ What it demonstrates:
 - Private arithmetic on `gt*` values.
 - Converting outputs for storage (`offBoard`) and for users (`offBoardToUser`).
 - Returning ABI tuple through `inbox.respond(...)`.
+- Correct COTI function signature design for arguments received from EVM request builder (`gt*`, not `it*`).
 
 What to add in production:
 

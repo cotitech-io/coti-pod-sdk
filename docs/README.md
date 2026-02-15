@@ -26,6 +26,7 @@ Then read deep dives:
 - `/docs/05c-examples-with-description.md`
 - `/docs/contracts/01-it-ct-gt-data-types.md`
 - `/docs/contracts/02-contract-patterns-and-checklist.md`
+- `/docs/contracts/03-request-builder-and-remote-calls.md`
 
 ## Full document list
 
@@ -43,6 +44,7 @@ Then read deep dives:
 - `/docs/06c-onboarding-account-account-aes-key.md`
 - `/docs/contracts/01-it-ct-gt-data-types.md`
 - `/docs/contracts/02-contract-patterns-and-checklist.md`
+- `/docs/contracts/03-request-builder-and-remote-calls.md`
 
 ## Scope notes
 

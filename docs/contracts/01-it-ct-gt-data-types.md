@@ -112,6 +112,25 @@ Intent:
 6. EVM callback stores `ct*`.
 7. Client decrypts `ct*` with account AES key.
 
+## Critical gotcha: EVM `it*` argument maps to COTI `gt*` parameter
+
+For custom COTI-side business logic, the type at the two boundaries is intentionally different:
+
+- EVM contract function accepts `it*` (for example `itUint64`).
+- COTI contract function must be declared with matching `gt*` (for example `gtUint64`).
+
+Example mapping:
+
+- EVM request side: `process(itUint64 amount)`
+- COTI execution side: `process(gtUint64 amount)`
+
+Why:
+
+- request payload includes encrypted user input with signature (`it*`),
+- request pipeline validates and converts that payload to compute-domain value (`gt*`) before COTI contract invocation.
+
+If you declare COTI function parameter as `it*` for a method that is invoked through this flow, decoding/ABI expectations will not match.
+
 ## `MpcAbiCodec` type mapping notes
 
 `/contracts/mpccodec/MpcAbiCodec.sol` includes `MpcDataType` variants for:

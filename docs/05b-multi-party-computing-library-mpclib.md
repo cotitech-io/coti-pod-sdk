@@ -11,6 +11,12 @@ Source: `/contracts/mpc/MpcLib.sol`
 - Sends two-way Inbox request with callback and error selectors.
 - Provides default error handler `onDefaultMpcError(bytes32 requestId)`.
 
+Important mapping behavior:
+
+- EVM calls `MpcLib` methods with `it*` input arguments.
+- COTI-side common methods are defined with `gt*` parameters (`ICommonMpcMethods`).
+- request re-encoding/validation converts `it*` payloads into `gt*` ABI arguments before COTI invocation.
+
 ## Available built-in methods
 
 - `add(itUint64 a, itUint64 b, address cOwner, bytes4 callbackSelector, bytes4 errorSelector)`

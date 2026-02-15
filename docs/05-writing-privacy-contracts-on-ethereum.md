@@ -34,6 +34,21 @@ You must define and maintain:
 - COTI function signature,
 - callback tuple schema.
 
+## 2.1 Critical type-mapping gotcha for custom COTI methods
+
+When you call custom COTI-side business logic through Inbox:
+
+- EVM-side contract arguments are usually `it*`.
+- COTI-side method parameters must be the corresponding `gt*`.
+
+Concrete example:
+
+- EVM side request builder passes `amount` as `itUint64`.
+- COTI-side target function should be declared as `amount gtUint64`.
+
+This mapping is easy to confuse and is one of the most common integration mistakes.
+Reference details: `/docs/contracts/01-it-ct-gt-data-types.md`.
+
 ## 3. Convert synchronous logic into async state machine
 
 Private operations are async:
