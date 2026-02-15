@@ -97,17 +97,7 @@ if (Array.isArray((encA as any).signature) || Array.isArray((encB as any).signat
   throw new Error("unexpected signature shape for Uint64");
 }
 
-const a = {
-  ciphertext: BigInt((encA as { ciphertext: string }).ciphertext),
-  signature: (encA as { signature: string }).signature,
-};
-
-const b = {
-  ciphertext: BigInt((encB as { ciphertext: string }).ciphertext),
-  signature: (encB as { signature: string }).signature,
-};
-
-// await contract.compare(a, b)
+// await contract.compare(encA, encB)
 // later read ctBool and decrypt with user's AES key:
 const plain = CotiPodCrypto.decrypt("0x...", accountAesKey, DataType.Bool);
 ```
